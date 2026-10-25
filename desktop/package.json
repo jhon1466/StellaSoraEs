@@ -1,0 +1,23 @@
+{
+  "name": "stella-sora-es-desktop",
+  "private": true,
+  "version": "0.2.8",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --port 4321",
+    "build": "astro build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@astrojs/solid-js": "^7.1.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tauri-apps/api": "^2.12.4",
+    "@tauri-apps/plugin-dialog": "^2.8.3",
+    "astro": "^5.18.2",
+    "solid-js": "^1.9.17",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4"
+  }
+}
