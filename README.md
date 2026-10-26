@@ -27,7 +27,7 @@ Para quitar el parche, pulsa **Volver al inglés**. Si una actualización del ju
 
 ## Instalación en Android
 
-Requiere [Shizuku]([https://shizuku.rikka.app/](https://github.com/RikkaApps/Shizuku/releases)) para poder escribir en `Android/data`.
+Requiere [Shizuku]([https://github.com/RikkaApps/Shizuku/releases]) para poder escribir en `Android/data`.
 
 1. Instala y arranca Shizuku.
 2. Instala `StellaSoraES-<versión>-android.apk` y ábrelo.
