@@ -10,6 +10,7 @@ type GameInfo = {
   client: string;
   resource: string;
   installed: string | null;
+  edition: string;
   running: boolean;
   message: string;
 };
@@ -21,7 +22,7 @@ type Line = { kind: "ok" | "error" | "info"; text: string };
 const PREVIEW: Record<string, unknown> = {
   patch_info: { version: "0.2.8", files: 74, bytes: 104_000_000 },
   detect_game: "C:\\YostarGames\\StellaSora_EN",
-  inspect_game: { valid: true, path: "C:\\YostarGames\\StellaSora_EN", client: "2.0.0", resource: "2610211926", installed: null, running: false, message: "" },
+  inspect_game: { valid: true, path: "C:\\YostarGames\\StellaSora_EN", client: "2.0.0", resource: "2610211926", installed: null, edition: "Steam", running: false, message: "" },
 };
 const invoke = <T,>(cmd: string, args?: Record<string, unknown>): Promise<T> =>
   isTauri() ? tauriInvoke<T>(cmd, args) : Promise.resolve(PREVIEW[cmd] as T);
@@ -157,6 +158,7 @@ export default function App() {
           </div>
           <div class="mt-1.5 flex flex-wrap gap-1.5 text-[11px] font-semibold">
             <Show when={game()?.valid} fallback={<span class="text-coral">{game()?.message || "Buscando…"}</span>}>
+              <span class="rounded bg-ink px-1.5 py-0.5 text-white">{game()!.edition}</span>
               <span class="rounded bg-ink/8 px-1.5 py-0.5 text-ink-soft">Cliente {game()!.client}</span>
               <span class="rounded bg-ink/8 px-1.5 py-0.5 text-ink-soft">Recursos {game()!.resource}</span>
               <Show when={game()!.installed}>

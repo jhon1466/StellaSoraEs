@@ -1,6 +1,6 @@
 # Stella Sora en español
 
-Parche de traducción al español, hecho por fans, para **Stella Sora** (cliente global de Yostar, versión 2.0.0) en **PC (Windows)** y **Android**.
+Parche de traducción al español, hecho por fans, para **Stella Sora** (cliente global de Yostar, versión 2.0.0) en **PC (Windows: launcher de Yostar y Steam)** y **Android**.
 
 Traduce la historia principal, los eventos, las historias de personajes, los chats del teléfono, las citas, los diálogos de combate, la interfaz, las misiones, los objetos y los subtítulos de las cinemáticas. Los nombres de los personajes se mantienen en su versión original.
 
@@ -20,7 +20,9 @@ Todo está en la sección [**Releases**](../../releases/latest):
 
 1. Cierra Stella Sora.
 2. Abre `StellaSoraES-<versión>-windows.exe`.
-3. La app busca el juego en todos tus discos. Si lo tienes en otra ubicación, pulsa **Elegir carpeta** y selecciona la carpeta donde está `StellaSora.exe`.
+3. La app busca el juego en todos tus discos, tanto la versión del launcher de Yostar como la de Steam (en todas tus bibliotecas). Si lo tienes en otra ubicación, pulsa **Elegir carpeta** y selecciona la carpeta donde está `StellaSora.exe`.
+
+   En Steam abre el juego una vez antes de instalar el parche, para que descargue sus recursos.
 4. Pulsa **Instalar en español**.
 
 Para quitar el parche, pulsa **Volver al inglés**. Si una actualización del juego reemplaza los archivos, vuelve a instalar el parche (o espera una nueva versión si cambió el contenido).
@@ -52,6 +54,7 @@ Detalles importantes para que el juego acepte los archivos:
 
 - **Bundles:** se reescriben con el mismo formato UnityFS del juego (flags `0x243`, LZ4HC). UnityPy los guarda con `0xC2` y el juego no puede abrirlos.
 - **Manifiestos:** el juego verifica cada archivo en `Persistent_Store/ss_win.mani` / `ss_and.mani` (MD5, tamaño y CRC32 del contenido descomprimido) y en `file_versions.dat` (MD5). Los instaladores editan solo las líneas de los archivos traducidos y conservan los saltos de línea LF; con CRLF el juego descarta sus versiones y vuelve a descargarlo todo.
+- **Steam:** es otra compilación del cliente (`StellaSora_steam`), pero sus recursos de texto son idénticos a los del launcher. Algunos bundles vienen preinstalados en `StellaSora_Data/StreamingAssets/InstallResource`; el instalador pone la copia traducida en `Persistent_Store` y la registra en `file_versions.dat`, igual que hace el juego con lo que descarga. Al restaurar se borran esas copias.
 - **Lua:** solo se reescriben las constantes de texto del bytecode; los comandos (`SetTalk`, `avg1_103`…) quedan intactos.
 
 ## Traducción
